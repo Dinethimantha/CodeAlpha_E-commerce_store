@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shopping Cart | NovaStore</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        .cart-page {
+            min-height: 70vh;
+            padding: 60px 0;
+            background: #fffaf4;
+        }
+
+        .cart-page h1 {
+            color: #172b4d;
+            margin-bottom: 30px;
+        }
+
+        .cart-layout {
+            display: grid;
+            grid-template-columns: 1.8fr 1fr;
+            gap: 30px;
+        }
+
+        .cart-items,
+        .cart-summary {
+            background: #ffffff;
+            border: 1px solid #ead9c8;
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee0d2;
+        }
+
+        .cart-item h3 {
+            color: #172b4d;
+            margin-bottom: 8px;
+        }
+
+        .cart-item p {
+            color: #777;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .quantity-controls button {
+            width: 30px;
+            height: 30px;
+            border: none;
+            background: #ffe1c7;
+            color: #172b4d;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+
+        .remove-btn {
+            border: none;
+            background: transparent;
+            color: #d94343;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .cart-summary h2 {
+            color: #172b4d;
+            margin-bottom: 20px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 15px 0;
+            color: #555;
+        }
+
+        .summary-total {
+            border-top: 1px solid #ead9c8;
+            padding-top: 18px;
+            font-size: 20px;
+            font-weight: 800;
+            color: #172b4d;
+        }
+
+        .checkout-btn,
+        .continue-btn {
+            display: block;
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 7px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .checkout-btn {
+            background: #e87932;
+            color: white;
+        }
+
+        .continue-btn {
+            background: #172b4d;
+            color: white;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 50px 15px;
+            color: #777;
+        }
+
+        .empty-cart h2 {
+            color: #172b4d;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .cart-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .cart-item {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Announcement -->
+    <div class="announcement">
+        Free shipping on orders over Rs. 10,000
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+
+        <div class="container navbar">
+
+            <a href="index.html" class="logo">Nova<span>Store.</span></a>
+
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#products">Products</a>
+                <a href="index.html#categories">Categories</a>
+            </nav>
+
+            <div class="nav-actions">
+
+                <a href="cart.html" class="cart-link">
+                    Cart <span class="cart-count" id="cartCount">0</span>
+                </a>
+
+                <a href="#" class="login-btn">Login</a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- Cart Section -->
+    <section class="cart-page">
+
+        <div class="container">
+
+            <h1>Shopping Cart</h1>
+
+            <div class="cart-layout">
+
+                <!-- Cart Items -->
+                <div class="cart-items">
+
+                    <h2>Your Items</h2>
+
+                    <div id="cartItems">
+
+                        <!-- Cart products will appear here -->
+
+                    </div>
+
+                </div>
+
+
+                <!-- Cart Summary -->
+                <div class="cart-summary">
+
+                    <h2>Order Summary</h2>
+
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span id="subtotal">Rs. 0</span>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Delivery</span>
+                        <span id="delivery">Rs. 0</span>
+                    </div>
+
+                    <div class="summary-row summary-total">
+                        <span>Total</span>
+                        <span id="total">Rs. 0</span>
+                    </div>
+
+                    <button class="checkout-btn" id="checkoutBtn">
+                        Proceed to Checkout
+                    </button>
+
+                    <a href="index.html#products" class="continue-btn">
+                        Continue Shopping
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <div class="container footer-content">
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="logo">
+                    Nova<span>Store.</span>
+                </a>
+
+                <p>
+                    Your trusted online shopping destination.
+                    Discover quality products at great prices.
+                </p>
+
+            </div>
+
+            <div class="footer-links">
+
+                <h3>Quick Links</h3>
+
+                <a href="index.html">Home</a>
+                <a href="index.html#products">Products</a>
+                <a href="index.html#categories">Categories</a>
+
+            </div>
+
+            <div class="footer-links">
+
+                <h3>Customer Service</h3>
+
+                <a href="#">Contact Us</a>
+                <a href="#">Shipping Policy</a>
+                <a href="#">Return Policy</a>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 NovaStore. All Rights Reserved.</p>
+        </div>
+
+    </footer>
+
+
+    <!-- Cart JavaScript -->
+    <script src="js/cart.js"></script>
+
+</body>
+</html>

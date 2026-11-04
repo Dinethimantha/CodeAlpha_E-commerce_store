@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | NovaStore</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .checkout-container {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .checkout-container h1 {
+            text-align: center;
+            margin-bottom: 35px;
+            color: #172b4d;
+        }
+
+        .checkout-layout {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 30px;
+        }
+
+        .checkout-form, .order-summary {
+            background: #fff3e7;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #ead9c8;
+        }
+
+        .checkout-form h2, .order-summary h2 {
+            margin-bottom: 22px;
+            color: #172b4d;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d8c5b2;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+            background: #fffaf4;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: #e87932;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .order-product {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid #ead9c8;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 18px;
+        }
+
+        .grand-total {
+            font-size: 20px;
+            font-weight: bold;
+            color: #e87932;
+            border-top: 1px solid #d8c5b2;
+            padding-top: 18px;
+        }
+
+        .place-order-btn {
+            width: 100%;
+            padding: 15px;
+            margin-top: 25px;
+            border: none;
+            border-radius: 8px;
+            background: #e87932;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .place-order-btn:hover {
+            background: #c85d20;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 25px;
+            color: #172b4d;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media(max-width: 750px) {
+            .checkout-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="checkout-container">
+
+        <h1>Checkout</h1>
+
+        <div class="checkout-layout">
+
+            <form class="checkout-form" id="checkoutForm">
+
+                <h2>Customer Details</h2>
+
+                <div class="form-group">
+                    <label for="customerName">Full Name</label>
+                    <input type="text" id="customerName"
+                           placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email"
+                           placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone"
+                           placeholder="Enter your phone number"
+                           pattern="[0-9+ ]{9,15}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Delivery Address</label>
+                    <textarea id="address"
+                              placeholder="Enter your delivery address"
+                              required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="payment">Payment Method</label>
+                    <select id="payment" required>
+                        <option value="">Select Payment Method</option>
+                        <option value="Cash on Delivery">Cash on Delivery</option>
+                        <option value="Bank Transfer">Bank Transfer</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="place-order-btn">
+                    Place Order
+                </button>
+
+                <a href="cart.html" class="back-link">
+                    ← Back to Cart
+                </a>
+
+            </form>
+
+            <div class="order-summary">
+
+                <h2>Your Order</h2>
+
+                <div id="checkoutItems"></div>
+
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <strong id="checkoutSubtotal">Rs. 0</strong>
+                </div>
+
+                <div class="summary-row">
+                    <span>Delivery</span>
+                    <strong id="checkoutDelivery">Rs. 0</strong>
+                </div>
+
+                <div class="summary-row grand-total">
+                    <span>Total</span>
+                    <strong id="checkoutTotal">Rs. 0</strong>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/checkout.js"></script>
+
+</body>
+</html>

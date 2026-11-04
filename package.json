@@ -1,0 +1,29 @@
+{
+  "name": "codealpha_ecommercestore",
+  "version": "1.0.0",
+  "description": "CodeAlpha Full Stack Development Internship - E-commerce Store",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "ecommerce",
+    "fullstack",
+    "codealpha"
+  ],
+  "author": "Dineth",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.9",
+    "express": "^5.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.11.4",
+    "multer": "^2.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

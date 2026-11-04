@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | NovaStore</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .auth-container {
+            max-width: 450px;
+            margin: 80px auto;
+            padding: 35px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+        }
+
+        .auth-container h2 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .auth-container p {
+            text-align: center;
+            color: #777;
+            margin-bottom: 25px;
+        }
+
+        .auth-form input {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 18px;
+            border: 1px solid #ddd;
+            border-radius: 7px;
+            font-size: 15px;
+        }
+
+        .auth-form button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 7px;
+            background: #e87932;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .auth-form button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .auth-switch {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .auth-switch a {
+            color: #e87932;
+            font-weight: bold;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="auth-container">
+
+        <h2 id="formTitle">Welcome Back!</h2>
+
+        <p id="formDescription">Login to your NovaStore account</p>
+
+        <form class="auth-form" id="authForm">
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Full Name"
+                style="display: none;"
+            >
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Email Address"
+                required
+            >
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Password"
+                required
+            >
+
+            <button type="submit" id="submitBtn">
+                Login
+            </button>
+
+        </form>
+
+        <div class="auth-switch">
+            <span id="switchText">Don't have an account?</span>
+            <a href="#" id="switchLink">Register</a>
+        </div>
+
+        <p style="margin-top: 20px;">
+            <a href="index.html">Back to Home</a>
+        </p>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/auth.js"></script>
+
+</body>
+</html>

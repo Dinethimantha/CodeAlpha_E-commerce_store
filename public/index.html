@@ -1,0 +1,329 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NovaStore | Online Shopping</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Announcement -->
+    <div class="announcement">
+        Free shipping on orders over Rs. 10,000
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+
+        <div class="container navbar">
+
+            <a href="#" class="logo">Nova<span>Store.</span></a>
+
+            <nav class="nav-links">
+                <a href="#" class="active">Home</a>
+                <a href="#products">Products</a>
+                <a href="#categories">Categories</a>
+                <a href="#footer">About</a>
+            </nav>
+
+            <div class="nav-actions">
+
+                <!-- Search Box -->
+                <div class="search-box">
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search products..."
+                        autocomplete="off"
+                    >
+
+                    <button type="button" id="searchBtn" aria-label="Search">
+                        <span>⌕</span>
+                    </button>
+                </div>
+
+                <!-- Cart -->
+                <a href="cart.html" class="cart-link">
+                    Cart <span class="cart-count" id="cartCount">0</span>
+                </a>
+
+                <!-- My Orders -->
+                <a href="orders.html">My Orders</a>
+
+                <!-- Login -->
+               <a href="login.html" id="authNavLink">Login</a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <div class="container hero-content">
+
+            <div class="hero-text">
+
+                <span class="hero-label">NEW COLLECTION 2026</span>
+
+                <h1>
+                    Discover Your
+                    <span>Perfect Style.</span>
+                </h1>
+
+                <p>
+                    Explore our latest collection of premium products.
+                    Quality, style and convenience all in one place.
+                </p>
+
+                <a href="#products" class="shop-btn">
+                    Explore Products →
+                </a>
+
+                <div class="hero-stats">
+
+                    <div>
+                        <h3>500+</h3>
+                        <p>Products</p>
+                    </div>
+
+                    <div>
+                        <h3>10K+</h3>
+                        <p>Customers</p>
+                    </div>
+
+                    <div>
+                        <h3>4.9/5</h3>
+                        <p>Customer Rating</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="hero-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=900"
+                    alt="Shopping collection"
+                >
+
+                <div class="floating-card">
+                    <span>Special Offer</span>
+                    <h3>Up to 40% OFF</h3>
+                    <p>On selected products</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Categories -->
+    <section class="categories section-padding" id="categories">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-label">EXPLORE</span>
+                    <h2>Shop by Category</h2>
+                </div>
+
+            </div>
+
+            <div class="category-grid">
+
+                <a href="#products"
+                    class="category-card"
+                    data-category="Electronics">
+
+                    <div class="category-icon">01</div>
+                    <h3>Electronics</h3>
+                    <p>Latest technology</p>
+
+                </a>
+
+                <a href="#products"
+                    class="category-card"
+                    data-category="Fashion">
+
+                    <div class="category-icon">02</div>
+                    <h3>Fashion</h3>
+                    <p>Modern collections</p>
+
+                </a>
+
+                <a href="#products"
+                    class="category-card"
+                    data-category="Accessories">
+
+                    <div class="category-icon">03</div>
+                    <h3>Accessories</h3>
+                    <p>Everyday essentials</p>
+
+                </a>
+
+                <a href="#products"
+                    class="category-card"
+                    data-category="Home">
+
+                    <div class="category-icon">04</div>
+                    <h3>Home & Living</h3>
+                    <p>Make life comfortable</p>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Products -->
+    <section class="products-section section-padding" id="products">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-label">OUR COLLECTION</span>
+                    <h2>Featured Products</h2>
+                    <p>Discover products selected just for you.</p>
+                </div>
+
+                <a href="#products" class="view-all">
+                    View All Products →
+                </a>
+
+            </div>
+
+            <!-- Products loaded from MongoDB -->
+            <div class="product-grid" id="productGrid">
+
+                <p>Loading products...</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Benefits -->
+    <section class="benefits">
+
+        <div class="container benefits-grid">
+
+            <div class="benefit-item">
+                <h3>Free Delivery</h3>
+                <p>On orders over Rs. 10,000</p>
+            </div>
+
+            <div class="benefit-item">
+                <h3>Secure Payment</h3>
+                <p>100% secure transactions</p>
+            </div>
+
+            <div class="benefit-item">
+                <h3>Easy Returns</h3>
+                <p>7-day return policy</p>
+            </div>
+
+            <div class="benefit-item">
+                <h3>24/7 Support</h3>
+                <p>We're here to help</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+
+        <div class="container footer-content">
+
+            <div class="footer-brand">
+
+                <a href="#" class="logo">
+                    Nova<span>Store.</span>
+                </a>
+
+                <p>
+                    Your trusted online shopping destination.
+                    Discover quality products at great prices.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h3>Quick Links</h3>
+
+                <a href="#">Home</a>
+                <a href="#products">Products</a>
+                <a href="#categories">Categories</a>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h3>Customer Service</h3>
+
+                <a href="#">Contact Us</a>
+                <a href="#">Shipping Policy</a>
+                <a href="#">Return Policy</a>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h3>Contact</h3>
+
+                <p>Email: support@novastore.com</p>
+                <p>Phone: +94 77 123 4567</p>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>© 2026 NovaStore. All Rights Reserved.</p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+
+</body>
+</html>
